@@ -1,2 +1,44 @@
-# go_router
-for focus twitter x base go_router 4.0 modifided by       url: https://github.com/robertodoering/packages       path: packages/go_router       ref: c0432b8b05bd678b971e1b6bde783c82d9eee98c
+# Welcome to go_router!
+
+The purpose of [the go_router package](https://pub.dev/packages/go_router) is to
+use declarative routes to reduce complexity, regardless of the platform you're
+targeting (mobile, web, desktop), handle deep and dynamic linking from
+Android, iOS and the web, along with a number of other navigation-related
+scenarios, while still (hopefully) providing an easy-to-use developer
+experience.
+
+You can get started with go_router with code as simple as this:
+
+```dart
+class App extends StatelessWidget {
+  App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => MaterialApp.router(
+        routeInformationProvider: _router.routeInformationProvider,
+        routeInformationParser: _router.routeInformationParser,
+        routerDelegate: _router.routerDelegate,
+        title: 'GoRouter Example',
+      );
+
+  final GoRouter _router = GoRouter(
+    routes: <GoRoute>[
+      GoRoute(
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) => const Page1Screen(),
+      ),
+      GoRoute(
+        path: '/page2',
+        builder: (BuildContext context, GoRouterState state) => const Page2Screen(),
+      ),
+    ],
+  );
+}
+
+class Page1Screen extends StatelessWidget {...}
+
+class Page2Screen extends StatelessWidget {...}
+```
+
+# See [gorouter.dev](https://gorouter.dev) for go_router docs & samples
+
